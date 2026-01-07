@@ -71,8 +71,8 @@ main() {
   left_separator="$(get_tmux_option "@catppuccin_left_separator" "")"
   readonly left_separator
 
-  local show_directory
-  readonly show_directory="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]󰉋 #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red]"
+  local show_time
+  readonly show_time="#[fg=$thm_yellow,bg=$thm_bg,nobold,nounderscore,noitalics]$right_separator#[fg=$thm_bg,bg=$thm_yellow,nobold,nounderscore,noitalics]󰥔 #[fg=$thm_fg,bg=$thm_gray] %H:%M #{?client_prefix,#[fg=$thm_red]"
 
   local show_session
   readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]$right_separator#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
@@ -84,7 +84,7 @@ main() {
   readonly show_window_status_current="#[fg=colour232,bg=$thm_orange] #I #[fg=colour255,bg=colour237] #W "
 
   set status-left ""
-  set status-right "${show_directory},${show_session}"
+  set status-right "${show_time},${show_session}"
 
   setw window-status-format "${show_window_status}"
   setw window-status-current-format "${show_window_status_current}"
